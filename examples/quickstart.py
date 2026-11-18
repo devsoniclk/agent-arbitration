@@ -95,12 +95,16 @@ def main():
     receipt = engine.resolve_arbitration_and_slash("disp_refactor_01")
     worker_after_stake = engine.agents["worker_node"].stake_balance
 
-    print(f"  Verdict:           {receipt['verdict']}")
+    verdict = receipt.get("verdict_outcome", receipt.get("verdict", "N/A"))
+    breach = receipt.get("breach_type", receipt.get("breach_description", "N/A"))
+    jailed = receipt.get("defendant_jailed", receipt.get("provider_jailed", False))
+
+    print(f"  Verdict:           {verdict}")
     print(f"  Winner:            {receipt['winner']}")
-    print(f"  Breach Detail:     {receipt['breach_description']}")
+    print(f"  Breach Detail:     {breach}")
     print(f"  Slashed Penalty:   ${receipt['slashed_penalty_collected']:.2f}")
     print(f"  Worker Stake:      ${worker_before_stake:.2f} -> ${worker_after_stake:.2f}")
-    print(f"  Worker Jailed:     {receipt['provider_jailed']} (below $2,000 min stake)")
+    print(f"  Worker Jailed:     {jailed} (below $2,000 min stake)")
 
     # 7. Verification of Action Witness DAG
     print("\n[6] Verifying Action Witness DAG...")
