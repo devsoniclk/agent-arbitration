@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-arbitration"
+version = "0.1.0"
+description = "Deterministic SLA dispute arbitration, proof-of-compute staking & automated escrow slashing for autonomous AI agent swarms"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Lakshitha Dananjaya", email = "dananjayarox01@gmail.com" }
+]
+keywords = [
+    "ai-agents",
+    "autonomous-agents",
+    "multi-agent-systems",
+    "dao-governance",
+    "sla-arbitration",
+    "dispute-resolution",
+    "quadratic-voting",
+    "proof-of-compute",
+    "escrow-slashing",
+    "agentic-economy"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0"
+]
+
+[project.scripts]
+agent-arbitration = "agent_arbitration.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/devsoniclk/agent-arbitration"
+Repository = "https://github.com/devsoniclk/agent-arbitration"
+Issues = "https://github.com/devsoniclk/agent-arbitration/issues"
